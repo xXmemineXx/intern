@@ -1,0 +1,55 @@
+.in_holder {
+	position: relative;
+}
+
+.in_holder label {
+	position: absolute;
+	background-color: var(--bgc);
+	border-radius: 5px;
+	padding: 2px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+	transform: translateY(-3px);
+	transition: 0.5s;
+}
+
+.in_holder img {
+	width: 30px;
+	height: 30px;
+}
+
+.in_holder .input {
+	padding: 2%;
+	height: 100%;
+	width: 100%;
+	background-color: var(--bgc);
+	border-radius: 15px;
+}
+
+.in_holder:has(.input:focus) label {
+	transform: translateY(-70%);
+}
+
+.in_holder:has(.input:not(:placeholder-shown)) label {
+	transform: translateY(-70%);
+}
+
+.hide {
+	border-width: 0px;
+	border-radius: 10px;
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	right: 0px;
+	bottom: 5px;
+	align-content: center;
+	align-items: center;
+	justify-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.input {
+	width: 100%;
+	text-align: center;
+}

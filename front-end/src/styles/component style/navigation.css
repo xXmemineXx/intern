@@ -1,0 +1,92 @@
+.navButton p {
+	position: absolute;
+	opacity: 0;
+}
+
+.topBar {
+	display: flex;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background-color: grey;
+	width: fit-content;
+	height: fit-content;
+	align-content: center;
+	justify-content: center;
+	justify-items: center;
+	border-bottom-left-radius: 15px;
+}
+
+.topBar .navButton:hover p {
+	transform: translateY(150%);
+	opacity: 1;
+	transition: 0.3s;
+}
+
+.topBar .ButtonIcon {
+	transition: 0.3s;
+	width: 40px;
+	height: 40px;
+}
+
+.topBar .navButton {
+	width: fit-content;
+	margin: 5px;
+	margin-inline: 8px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+}
+
+.lateralBar {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: grey;
+	height: 100vh;
+	width: 10vw;
+	align-content: center;
+	justify-content: center;
+	justify-items: center;
+}
+
+.lateralBar .navButton {
+	background-color: ghostwhite;
+	border-radius: 50%;
+	position: relative;
+	margin: 15px;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+}
+
+.lateralBar .navButton:hover p {
+	transform: translateX(52px);
+	opacity: 1;
+	transition: 0.5s;
+	background-color: ghostwhite;
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
+	padding: 8px;
+}
+
+.lateralBar .actif {
+	transform: translateX(50px);
+	opacity: 1;
+	padding: 8px;
+}
+
+.lateralBar .ButtonIcon {
+	width: 60px;
+	height: 60px;
+}
+
+.navButton .in_holder {
+	margin: 0px;
+	margin-top: 5px;
+	padding: 0px;
+	height: 20px;
+}

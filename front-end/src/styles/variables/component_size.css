@@ -1,0 +1,14 @@
+:root {
+	--button_width: 150px;
+	--text_margin: 30px;
+
+	--log_height: 50vh;
+	--log_width: 50vw;
+}
+
+@media (max-width: 767px) {
+	:root {
+		--button_width: 100px;
+		--text_margin: 15px;
+	}
+}
