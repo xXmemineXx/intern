@@ -90,3 +90,29 @@
 	padding: 0px;
 	height: 20px;
 }
+
+/*=================================================================
+=========================== nav for mobile========================
+=================================================================*/
+
+.floating {
+	position: fixed;
+	background-color: grey;
+	display: flex;
+	border-radius: 15px;
+	padding-inline: 15px;
+	padding-top: 5px;
+	bottom: 30px;
+
+	align-items: center;
+	justify-self: center;
+}
+
+.floating img {
+	width: 50px;
+	height: 50px;
+}
+
+.floating .navButton {
+	margin-inline: 5px;
+}

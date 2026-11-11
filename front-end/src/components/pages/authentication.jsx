@@ -20,7 +20,6 @@ export function Sign_in({on_switch, onSuccess}) {
 		try {
 			await login(im, pswd)
 			const user = await authMe({id_ : im})
-			console.log(user)
 			onSuccess?.(user)
 		} catch (err) {
 			setError(err.response?.data?.message || 'Login failed')
@@ -74,8 +73,8 @@ export function Sign_in({on_switch, onSuccess}) {
 	)
 }
 
-export function Sign_up(called, onSuccess) {
-	let classes = "sign_field " + called.className
+export function Sign_up({className, onSuccess, on_switch}) {
+	let classes = "sign_field " + className
 
 	const [step, setStep] = useState(false)
 
@@ -118,7 +117,7 @@ export function Sign_up(called, onSuccess) {
 		}
 
 		try {
-			user = await signUp(newUser)
+			const user = await signUp(newUser)
 			onSuccess?.(user)
 		} catch (err) {
 			console.log(err)
@@ -192,7 +191,7 @@ export function Sign_up(called, onSuccess) {
 						{value : true, label : 'yes'},
 						{value : false, label : 'no'},
 					]}
-					onChange={ e => setDecision(e.target.value)}
+					onChange={ e => setDecision(e.target.value === "true")}
 			/>
 
 			<Field	name="superior"
@@ -244,7 +243,7 @@ export function Sign_up(called, onSuccess) {
 					href=""
 					onClick={(e) => {
 						e.preventDefault()
-						called.on_switch()
+						on_switch()
 					}}
 				>
 					sign_in? 

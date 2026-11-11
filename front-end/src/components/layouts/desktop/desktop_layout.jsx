@@ -1,7 +1,8 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Input from '@/components/buttons and fields/input'
 import {Sign_in, Sign_up} from '@/components/pages/authentication'
 import {Bar}  from '@/components/navigation/nav_bar'
+import Button from '@/components/buttons and fields/button'
 
 import Acccount from '@/components/pages/account'
 
@@ -70,16 +71,31 @@ function MainPage({user, onLogout, onSwitch}) {
 function Log({onLogin}) {
 	const [login, setLogin] = useState(false)
 
+	const [request, setRequest] = useState(null)
+
 	return (
 		<div className={login ? "is_signup log_screen" : "is_signin log_screen"}>
 				<Sign_in on_switch={() => setLogin(true)}
 						 onSuccess={onLogin}/>
-				<Sign_up className="scrollable" on_switch={() => setLogin(false)}/>
+				<Sign_up className="scrollable" 
+						 on_switch={() => setLogin(false)}
+						 onSuccess={setRequest}/>
 					
 			<div className="present">
 				<h1> welcome </h1>
 				<h2> log in to continue </h2>
 				<h2> {login ? "sign up" : "sign in"} </h2>
+			</div>
+
+			<div className={request ? "glass" : "default"}>
+				<div className="notifPopup">
+					{request ? <div> 
+									<p> {request.id_} </p>
+								</div> 
+							 : ""}
+					<Button callback={() => setRequest(null)}
+							shown="close"/>
+				</div>
 			</div>
 		</div>
 	)

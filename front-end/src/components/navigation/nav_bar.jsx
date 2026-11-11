@@ -1,4 +1,5 @@
 import '@/styles/component style/navigation.css'
+import {useRef} from 'react'
 
 export function Bar({ objects = [], direction = ""}) {
 	let position = "lateralBar"
@@ -15,7 +16,7 @@ export function Bar({ objects = [], direction = ""}) {
 	return (
 		<div className={position}>
 			{objects.map(o => (
-				<div key={o.id} className="navButton" onClick={o.callback}>
+				<div key={o.id} className="navButton" ref={o.ref} onClick={o.callback}>
 					<p>{o.options}</p>
 					{o.image
 						? <img src={o.image} alt={o.options} className="ButtonIcon" />
@@ -27,24 +28,17 @@ export function Bar({ objects = [], direction = ""}) {
 
 }
 
-export function Floating (called){
+export function Floating ({objects = []}){
 	return (
 		<div className="floating">
-			{called.objects.map(o => {
-				<div className="navButton"
-					 onClick={o.callback}>
-					{o.options}
+			{objects.map(o => (
+				<div key={o.id} className="navButton" ref={o.ref} onClick={o.callback}>
+					<p>{o.options}</p>
+					{o.image
+						? <img src={o.image} alt={o.options} className="ButtonIcon" />
+						: o.content}
 				</div>
-			})}
+			))}
 		</div>
-	)
-}
-
-export function LeftBar() {
-	return (
-		<Bar objects={[
-			{options : 'hello', image : '', callback : undefined},
-			{options : 'bye', image : '', callback : undefined},
-		]}/>
 	)
 }
